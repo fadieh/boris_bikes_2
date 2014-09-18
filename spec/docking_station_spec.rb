@@ -30,4 +30,16 @@ describe DockingStation do
 
 	end
 
+	it "should not accept a bike if it's full" do
+		20.times { station.dock(Bike.new) }
+		# If it doesn't make sense, I'll move on. Station can't dock another bike
+		# So it'll raise an Error.
+		# Lambda prevents the programme from crashing.
+		# because station has a capacity of 20.
+		# there are 20 bikes docked into the station.
+		# dock raises Error if full is true.
+		# this makes the test pass.
+		expect(lambda { station.dock(bike) }).to raise_error(RuntimeError)
+	end
+
 end

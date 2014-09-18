@@ -15,6 +15,7 @@ class DockingStation
 	end
 
 	def dock(bike) # this needs to shovel the instance into the array.
+		raise "Station is full" if full?
 		@bikes << bike
 	end
 
