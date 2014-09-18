@@ -4,10 +4,7 @@ class Bike
 	# class by typing Bike.new
 
 	def initialize
-		# all instance variables begin with an @
-		# this must be an instance variable because we'll need it
-		# in other methods
-		@broken = false
+		fix!
 	end
 
 	def broken?
