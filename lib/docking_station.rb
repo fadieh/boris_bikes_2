@@ -1,6 +1,10 @@
 class DockingStation
 
-	def initialize
+	DEFAULT_CAPACITY = 10
+
+	def initialize(options = {})
+		# fetch called on options which is a hash therefore capacity = :capacity
+		@capacity = options.fetch(:capacity, DEFAULT_CAPACITY)
 		# initialise bikes as an empty array
 		@bikes = []
 	end
@@ -16,6 +20,10 @@ class DockingStation
 
 	def release(bike)
 		@bikes.delete(bike)
+	end
+
+	def full?
+		bike_count == @capacity
 	end
 
 end
