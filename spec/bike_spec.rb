@@ -19,5 +19,16 @@ describe Bike do
 		# if it returns true, fails the example because we don't
 		# want it to be broken.
 		expect(the_bike).not_to be_broken
+		# this now fails as broken? is true
+		# the expected behaviour of the bike to not be broken does not happen.
+	end
+
+	it "should be able to break" do
+		bike = Bike.new
+		bike.break!
+		expect(bike).to be_broken
+		# This now passes but 1st example fails now because broken is true
+		# There the expected behaviour, bike to be broken returns a pass
+
 	end
 end
