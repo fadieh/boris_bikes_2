@@ -1,6 +1,7 @@
 require 'bike'
 # contents of bike exist here.
 
+# describe instance of bike class
 describe Bike do
 
 	# defines variables used by all tests
