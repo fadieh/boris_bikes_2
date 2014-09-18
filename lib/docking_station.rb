@@ -27,4 +27,10 @@ class DockingStation
 		bike_count == @capacity
 	end
 
+	def available_bikes
+		# reject broken bike(s) inside @bikes
+		# INCEPTION, reject creates an array within an array.
+		# moves it into 2 lists in the same 
+		@bikes.reject {|bike| bike.broken? }
+	end
 end
