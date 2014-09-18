@@ -5,6 +5,7 @@ describe DockingStation do
 	let(:bike) { Bike.new }
 	let(:station) { DockingStation.new(:capacity => 20) }
 
+	# defining the method in the initialising of the dock is an rspec helper.
 	def fill_station(station)
 		20.times { station.dock(Bike.new) }
 	end
@@ -26,7 +27,7 @@ describe DockingStation do
 
 	it "should know when it's full" do
 		expect(station).not_to be_full
-		fill_station station
+		fill_station(station)
 		# runs the dock method(with Bike instance as the argument)
 		# which shovels 20 instances of bike into the @bikes array
 		expect(station).to be_full
@@ -35,7 +36,7 @@ describe DockingStation do
 	end
 
 	it "should not accept a bike if it's full" do
-		fill_station station
+		fill_station(station)
 		# If it doesn't make sense, I'll move on. Station can't dock another bike
 		# So it'll raise an Error.
 		# Lambda prevents the programme from crashing.
