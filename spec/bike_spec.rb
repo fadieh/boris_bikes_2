@@ -1,34 +1,26 @@
-# link to the Bike class .rb file
-# equivillent to copy and pasting the contents of bike.rb on line 2 of the test from Ruby's perspective
 require 'bike'
+# contents of bike exist here.
 
-# describe Bike class
 describe Bike do
-	# it describes what we expect to be happening
+
 	it "should not be broken after we create it." do
 		the_bike = Bike.new
-		# expect method from rspec, takes the object under test in ()
-		# returns special object that has different methods that make
-		# the example pass or fail. depending on their arguments 
-
-		# not_to is another rspec method
-		# not_to() method takes a look at its argument 
-		# which will realise that if we dont expect the bike to be_broken
-		# we must have a method broken?() in the Bike Class.
-		# THEREFORE, it calls this method on the Bike class.
-		# if it returns true, fails the example because we don't
-		# want it to be broken.
 		expect(the_bike).not_to be_broken
-		# this now fails as broken? is true
-		# the expected behaviour of the bike to not be broken does not happen.
+		
 	end
 
 	it "should be able to break" do
 		bike = Bike.new
 		bike.break!
 		expect(bike).to be_broken
-		# This now passes but 1st example fails now because broken is true
-		# There the expected behaviour, bike to be broken returns a pass
 
 	end
+
+	it "should be able to get fixed" do
+		bike = Bike.new
+		bike.break!
+		bike.fix!
+		expect(bike).not_to be_broken	
+	end
+	
 end
