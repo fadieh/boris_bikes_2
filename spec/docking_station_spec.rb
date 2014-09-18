@@ -27,6 +27,7 @@ describe DockingStation do
 		# which shovels 20 instances of bike into the @bikes array
 		expect(station).to be_full
 		# behaviour predicted is the capacity
+
 	end
 
 end
