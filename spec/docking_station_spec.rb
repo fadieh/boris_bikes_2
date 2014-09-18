@@ -2,11 +2,22 @@ require 'docking_station'
 
 describe DockingStation do
 
+	let(:bike) { Bike.new }
+	let(:station) { DockingStation.new }
+
 	it "should accept a bike" do # we will be testing by looking at the bike count in the station.
-		bike = Bike.new # 'bike is a new instance'
-		station = DockingStation.new
 		expect(station.bike_count).to eq(0)
 		station.dock(bike)
 		expect(station.bike_count).to eq(1)
 	end
+
+	it "should release a bike" do 
+		# we will be testing by docking a bike into station (eq: 1)
+		# release the bike so that the station eq: 0
+		# thats how we know a bike has been released
+		station.dock(bike)
+		station.release(bike)
+		expect(station.bike_count).to eq(0)
+	end
+
 end
